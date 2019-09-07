@@ -1,0 +1,5 @@
+title Sequence diagram 
+
+browser->server: HTTP POST: https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server->browser: JSON data
+note over browser: browser renders data to HTML

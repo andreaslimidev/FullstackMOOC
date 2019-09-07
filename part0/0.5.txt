@@ -1,0 +1,12 @@
+title Sequence diagram 
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+server->browser: HTML
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: CSS
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+server->browser: JS
+note over browser: browser runs js, then proceeds to get JSON data
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: JSON data
+note over browser: browser renders data 
