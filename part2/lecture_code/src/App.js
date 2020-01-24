@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Note from './components/Note'
+const baseUrl = '/api/notes'
 
 const App = (props) => {
   const [notes, setNotes] = useState([])
@@ -13,15 +14,13 @@ const App = (props) => {
   const hook = () => {
     console.log('effect')
     axios
-      .get('http://localhost:3001/notes')
+      .get(baseUrl)
       .then(response => {
         console.log('promise fulfilled')
         setNotes(response.data)
       })
   }
 
-  const prom = axios.get('http://localhost:3001/notes')
-  prom.then(response => console.log(response.data))
   
   useEffect(hook, [])
 
@@ -59,7 +58,7 @@ const rows = () => notesToShow.map(note =>
 
   return (
     <div>
-      <h1>Notes</h1>
+      <h1>Notes!!</h1>
       <div>
         <button onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'important' : 'all' }

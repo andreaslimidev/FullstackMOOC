@@ -8,6 +8,7 @@ import './index.css'
 
 import { arrayExpression } from '@babel/types'
 
+const baseUrl = "/api/persons/"
 const App = () => {
 
   const [ persons, setPersons] = useState([
@@ -29,7 +30,7 @@ const App = () => {
   const hook = () => {
     
     axios
-      .get('http://localhost:3001/persons')
+      .get(baseUrl)
       .then(response => {
         console.log("promise fulfilled")
         setPersons(response.data)
@@ -96,7 +97,6 @@ const App = () => {
   else {
     if(window.confirm(newName + ' is already added, replace number with a new one?')) {
 
-      const url = 'http://localhost:3001/persons/'
 
       const newPerson = {
         name: newName,
